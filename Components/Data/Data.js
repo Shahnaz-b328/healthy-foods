@@ -48,7 +48,9 @@ export default function Data() {
         },
     ]
     return (
+
         <View style={styles.container}>
+                    <Text style={styles.text}>Healthy Foods</Text>
             {
                 foods.map(food => <Foods food={food}></Foods>)
             }
@@ -61,5 +63,10 @@ const styles = StyleSheet.create({
         marginTop:'50px',
         alignItems: 'center',
     justifyContent: 'center',
+    },
+    text:{
+        color:'navy',
+        fontWeight:'bold',
+        fontSize:'40px'
     }
 })

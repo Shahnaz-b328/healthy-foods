@@ -1,11 +1,14 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Button, Card } from 'react-native-elements';
-
-
+import { useHistory } from 'react-router';
 
 export default function Foods(props) {
-    const { name, price, image, des } = props.food;
+    const { name, price, image, des, id} = props.food;
+    const history = useHistory();
+    const order = id => {
+        history.push(`/foods/${id}`)
+    }
     return (
         <View style={styles.container}>
             <Card>
@@ -17,7 +20,7 @@ export default function Foods(props) {
                     {des}
                 </Text>
                 <Text style={{textAlign:'center', fontWeight:'bold', fontSize:'20px',color:'#ff2400'}}>${price}</Text>
-                <Button style={styles.button} title='Order'></Button>
+                <Button onClick={() => order(id)} style={styles.button} title='Order'></Button>
             </Card>
         </View>
     )
